@@ -22,6 +22,10 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
+  .icon-menu {
+    color: #333 !important;  /* 검정색으로 표시 */
+  }
+
     strong { color: #2b8a3e; font-weight: 700; }
 
     /* 제품 제목 크게 */
@@ -580,7 +584,22 @@ window.addEventListener('load', function() {
             </script>
 
   <script src="js/main.js"></script>
-
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // 모바일 메뉴에서 '회사소개' 글자 클릭 시에도 드롭다운 열기/닫기
+  document.querySelectorAll('.site-mobile-menu .has-children > a').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault(); // 링크 이동 막고
+      const parent = this.parentElement;
+      parent.classList.toggle('active'); // active 토글
+      const dropdown = parent.querySelector('.dropdown');
+      if (dropdown) {
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+      }
+    });
+  });
+});
+</script>
 <style>
 /* 데스크탑 메뉴 & 드롭다운 */
 .site-menu li a span,
