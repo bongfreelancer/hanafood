@@ -30,16 +30,20 @@
         }
 
         /* 로고 크기 및 폰트 조정 */
-        .site-logo a {
-          font-size: 1.3rem;
-        }
+        .site-logo img {
+    max-width: 140px;
+    height: auto;
+  }
 
         /* 햄버거 아이콘 위치 */
         .site-menu-toggle {
-          font-size: 1.6rem;
-          padding: 0.2rem;
-          margin-top: -0.2rem;
-        }
+    font-size: 1.6rem;
+    padding: 0.4rem;
+    color: #333 !important;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+  }
 
         /* 모바일 메뉴 항목 */
         .site-mobile-menu-body .has-children > a {
@@ -51,6 +55,7 @@
           cursor: pointer;
         }
 
+        /* 모바일 드롭다운 메뉴 */
         .site-mobile-menu-body .dropdown {
           display: none;
           padding-left: 1rem;
@@ -59,13 +64,6 @@
 
         .site-mobile-menu-body .has-children.active > a {
           color: #27CB58;
-        }
-
-        /* 배경화면 비율 유지 */
-        .site-blocks-cover {
-          background-size: cover !important;
-          background-position: center !important;
-          background-repeat: no-repeat !important;
         }
       }
     </style>
@@ -101,16 +99,6 @@
       object-fit: cover;
     }
 
-    /* 모바일 반응형 */
-    @media (max-width: 768px) {
-      .img-container img { width: 150px; height: 150px; }
-      .block-services-1 h4 { font-size: 1.5rem; }
-    }
-
-    @media (max-width: 480px) {
-      .img-container img { width: 120px; height: 120px; }
-      .block-services-1 h4 { font-size: 1.3rem; }
-    }
     html { scroll-behavior: smooth; }
 
 .site-footer {
@@ -638,63 +626,6 @@ window.addEventListener('load', function() {
             </script>
 
   <script src="js/main.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  // 모바일 메뉴 드롭다운 개선
-  document.querySelectorAll('.site-mobile-menu .has-children > a').forEach(function(el) {
-    el.style.cursor = 'pointer'; // 터치 가능 표시
-
-    el.addEventListener('click', function(e) {
-      e.preventDefault(); // 링크 이동 방지
-
-      const parent = this.parentElement;
-      const dropdown = parent.querySelector('.dropdown');
-
-      // 이미 열려 있는 다른 메뉴는 닫기
-      document.querySelectorAll('.site-mobile-menu .has-children').forEach(function(other) {
-        if (other !== parent) {
-          other.classList.remove('active');
-          const otherDropdown = other.querySelector('.dropdown');
-          if (otherDropdown) otherDropdown.style.display = 'none';
-        }
-      });
-
-      // 클릭한 메뉴 토글
-      parent.classList.toggle('active');
-      if (dropdown) {
-        dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
-      }
-    });
-  });
-});
-</script>
-<style>
-/* 모바일 메뉴 항목 터치 개선 */
-@media (max-width: 768px) {
-  .site-mobile-menu-body .has-children > a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.1rem;
-    padding: 0.8rem 1rem;
-  }
-
-  .site-mobile-menu-body .dropdown {
-    display: none;
-    padding-left: 1rem;
-    background: #f8f8f8;
-  }
-
-  .site-mobile-menu-body .has-children.active > a {
-    color: #27CB58; /* 활성화 시 포인트 색 */
-  }
-
-  .site-blocks-cover {
-    background-size: cover !important;
-    background-position: center !important;
-  }
-}
-</style>
 <style>
 /* 데스크탑 메뉴 & 드롭다운 */
 .site-menu li a span,
@@ -729,6 +660,30 @@ document.addEventListener("DOMContentLoaded", function() {
   position: relative;
 }
 </style>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('.site-mobile-menu .has-children > a').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      const parent = this.parentElement;
+      const dropdown = parent.querySelector('.dropdown');
+      if (!dropdown) return;
 
+      // 다른 열린 메뉴 닫기
+      document.querySelectorAll('.site-mobile-menu .has-children').forEach(function(other) {
+        if (other !== parent) {
+          other.classList.remove('active');
+          const otherDropdown = other.querySelector('.dropdown');
+          if (otherDropdown) otherDropdown.style.display = 'none';
+        }
+      });
+
+      // 현재 클릭한 메뉴 토글
+      parent.classList.toggle('active');
+      dropdown.style.display = parent.classList.contains('active') ? 'block' : 'none';
+    });
+  });
+});
+</script>
   </body>
 </html>
