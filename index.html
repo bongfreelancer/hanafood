@@ -137,7 +137,13 @@ body {
 
 
 
-  <div class="site-blocks-cover overlay" style="background-image: url(background_final2.png);" data-aos="fade" data-stellar-background-ratio="0.5" >
+  <div class="site-blocks-cover overlay" 
+     style="background-image: url(background_final2.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;"
+     data-aos="fade" 
+     data-stellar-background-ratio="0.5">
     <div class="container">
 
       <div class="row align-items-start justify-content-start text-start">
@@ -475,7 +481,7 @@ window.addEventListener('load', function() {
   <div class="col-md-6">
     <div class="contact-card p-4 border rounded shadow-sm text-left">
       <h4 style="color:#2b8a3e; margin-bottom: 20px;">담당자 정보</h4>
-      <p><strong>담당자 :</strong> <span style="color:#000;">김가현 주임</span></p>
+      <p><strong>담당자 :</strong> <span style="color:#000;">김가현 팀장</span></p>
       <p><strong>주소 :</strong> <span style="color:#000;">경기도 고양시 덕양구 내유길 87 ㈜하나푸드</span></p>
       <p><strong>이메일 :</strong> <span style="color:#000;">hanafood201807@naver.com</a></span></p>
       <p><strong>핸드폰 :</strong> <span style="color:#000;">010-XXXX-XXXX</span></p>
@@ -586,20 +592,61 @@ window.addEventListener('load', function() {
   <script src="js/main.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  // 모바일 메뉴에서 '회사소개' 글자 클릭 시에도 드롭다운 열기/닫기
+  // 모바일 메뉴 드롭다운 개선
   document.querySelectorAll('.site-mobile-menu .has-children > a').forEach(function(el) {
+    el.style.cursor = 'pointer'; // 터치 가능 표시
+
     el.addEventListener('click', function(e) {
-      e.preventDefault(); // 링크 이동 막고
+      e.preventDefault(); // 링크 이동 방지
+
       const parent = this.parentElement;
-      parent.classList.toggle('active'); // active 토글
       const dropdown = parent.querySelector('.dropdown');
+
+      // 이미 열려 있는 다른 메뉴는 닫기
+      document.querySelectorAll('.site-mobile-menu .has-children').forEach(function(other) {
+        if (other !== parent) {
+          other.classList.remove('active');
+          const otherDropdown = other.querySelector('.dropdown');
+          if (otherDropdown) otherDropdown.style.display = 'none';
+        }
+      });
+
+      // 클릭한 메뉴 토글
+      parent.classList.toggle('active');
       if (dropdown) {
-        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
       }
     });
   });
 });
 </script>
+<style>
+/* 모바일 메뉴 항목 터치 개선 */
+@media (max-width: 768px) {
+  .site-mobile-menu-body .has-children > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .site-mobile-menu-body .dropdown {
+    display: none;
+    padding-left: 1rem;
+    background: #f8f8f8;
+  }
+
+  .site-mobile-menu-body .has-children.active > a {
+    color: #27CB58; /* 활성화 시 포인트 색 */
+  }
+
+  .site-blocks-cover {
+    background-size: cover !important;
+    background-position: center !important;
+  }
+}
+</style>
 <style>
 /* 데스크탑 메뉴 & 드롭다운 */
 .site-menu li a span,
