@@ -20,7 +20,55 @@
   <link rel="stylesheet" href="css/aos.css">
   <link rel="stylesheet" href="css/rangeslider.css">
   <link rel="stylesheet" href="css/style.css">
+<style>
+      /* 🌿 모바일 반응형 최적화 */
+      @media (max-width: 768px) {
+        /* 헤더 높이 축소 */
+        .site-navbar {
+          padding: 0.4rem 0;
+          min-height: 60px;
+        }
 
+        /* 로고 크기 및 폰트 조정 */
+        .site-logo a {
+          font-size: 1.3rem;
+        }
+
+        /* 햄버거 아이콘 위치 */
+        .site-menu-toggle {
+          font-size: 1.6rem;
+          padding: 0.2rem;
+          margin-top: -0.2rem;
+        }
+
+        /* 모바일 메뉴 항목 */
+        .site-mobile-menu-body .has-children > a {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 1.05rem;
+          padding: 0.7rem 1rem;
+          cursor: pointer;
+        }
+
+        .site-mobile-menu-body .dropdown {
+          display: none;
+          padding-left: 1rem;
+          background: #f8f8f8;
+        }
+
+        .site-mobile-menu-body .has-children.active > a {
+          color: #27CB58;
+        }
+
+        /* 배경화면 비율 유지 */
+        .site-blocks-cover {
+          background-size: cover !important;
+          background-position: center !important;
+          background-repeat: no-repeat !important;
+        }
+      }
+    </style>
   <style>
   .icon-menu {
     color: #333 !important;  /* 검정색으로 표시 */

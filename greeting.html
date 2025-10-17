@@ -18,7 +18,55 @@
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/rangeslider.css">
     <link rel="stylesheet" href="css/style.css">
+<style>
+      /* 🌿 모바일 반응형 최적화 */
+      @media (max-width: 768px) {
+        /* 헤더 높이 축소 */
+        .site-navbar {
+          padding: 0.4rem 0;
+          min-height: 60px;
+        }
 
+        /* 로고 크기 및 폰트 조정 */
+        .site-logo a {
+          font-size: 1.3rem;
+        }
+
+        /* 햄버거 아이콘 위치 */
+        .site-menu-toggle {
+          font-size: 1.6rem;
+          padding: 0.2rem;
+          margin-top: -0.2rem;
+        }
+
+        /* 모바일 메뉴 항목 */
+        .site-mobile-menu-body .has-children > a {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 1.05rem;
+          padding: 0.7rem 1rem;
+          cursor: pointer;
+        }
+
+        .site-mobile-menu-body .dropdown {
+          display: none;
+          padding-left: 1rem;
+          background: #f8f8f8;
+        }
+
+        .site-mobile-menu-body .has-children.active > a {
+          color: #27CB58;
+        }
+
+        /* 배경화면 비율 유지 */
+        .site-blocks-cover {
+          background-size: cover !important;
+          background-position: center !important;
+          background-repeat: no-repeat !important;
+        }
+      }
+    </style>
     <style>
    
   .icon-menu {
@@ -183,26 +231,37 @@ html, body {
   <script src="js/bootstrap-datepicker.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/rangeslider.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   <script>
     AOS.init();
   </script>
   <script src="js/main.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  // 모바일 메뉴에서 '회사소개' 글자 클릭 시에도 드롭다운 열기/닫기
-  document.querySelectorAll('.site-mobile-menu .has-children > a').forEach(function(el) {
-    el.addEventListener('click', function(e) {
-      e.preventDefault(); // 링크 이동 막고
-      const parent = this.parentElement;
-      parent.classList.toggle('active'); // active 토글
-      const dropdown = parent.querySelector('.dropdown');
-      if (dropdown) {
-        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-      }
-    });
-  });
-});
-</script>
+<!-- 🌿 모바일 드롭다운 개선 -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // 모바일 메뉴 드롭다운
+        document.querySelectorAll('.site-mobile-menu .has-children > a').forEach(function(el) {
+          el.addEventListener('click', function(e) {
+            e.preventDefault();
+            const parent = this.parentElement;
+            const dropdown = parent.querySelector('.dropdown');
+
+            document.querySelectorAll('.site-mobile-menu .has-children').forEach(function(other) {
+              if (other !== parent) {
+                other.classList.remove('active');
+                const otherDropdown = other.querySelector('.dropdown');
+                if (otherDropdown) otherDropdown.style.display = 'none';
+              }
+            });
+
+            parent.classList.toggle('active');
+            if (dropdown) {
+              dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+            }
+          });
+        });
+      });
+    </script>
 <style>
 /* 데스크탑 메뉴 & 드롭다운 */
 .site-menu li a span,
