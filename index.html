@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="css/rangeslider.css">
   <link rel="stylesheet" href="css/style.css">
 <style>
-      @media (max-width: 768px) {
+@media (max-width: 768px) {
   .site-navbar .row {
     display: flex;
     align-items: center;
@@ -34,13 +34,7 @@
 .site-logo img {
   width: 100%;
   height: auto;
-  max-width: 180px; /* 최대 크기 제한 */
-}
-
-@media (max-width: 768px) {
-  .site-logo img {
-    max-width: 40vw; /* 화면 너비의 40%로 자동 반응 */
-  }
+  max-width: 40vw; /* 화면 너비의 40%로 자동 반응 */
 }
   .site-menu-toggle {
     position: absolute;
@@ -52,10 +46,25 @@
     padding: 0.2rem 0.5rem;
   }
 
-  /* 아이콘을 보기 좋게 중앙정렬 */
   .site-navbar {
-    position: relative;
+    position: fixed !important;
     padding: 0.5rem 1rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* 다른 요소 위에 표시 */
+    background-color: #fff !important; /* 배경 흰색으로 유지 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 살짝 그림자 효과 */
+  }
+
+  /* 로고와 메뉴 간격 보정 */
+  .site-navbar .site-logo img {
+    max-width: 150px;
+  }
+
+  /* 헤더가 fixed 되면, 본문이 가려지지 않게 상단 여백 추가 */
+  body {
+    padding-top: 80px; /* 헤더 높이만큼 여백 */
   }
 }
 </style>
@@ -67,7 +76,7 @@
   }
 
   .img-container {
-    width: 48%;           /* 한 줄에 2개 유지 */
+    width: 45%;           /* 한 줄에 2개 유지 */
   }
 }
 </style>
@@ -75,7 +84,7 @@
   html, body {
   margin: 0;
   padding: 0;
-  min-height: 100%;
+  height: 100%;
   scroll-behavior: smooth; 
   scrollbar-gutter: stable;
 }
@@ -163,7 +172,7 @@
                 <li class="has-children">
                   <a href="javascript:void(0);" class="disabled-link"><span>회사소개</span></a>
                   <ul class="dropdown arrow-top">
-                    <li><a href="greeting.html">CEO 인사말</a></li>
+                    <li><a href="greeting2.html">CEO 인사말</a></li>
                     <li><a href="#">경영이념</a></li>
                     <li><a href="#">회사연혁</a></li>
                     <li><a href="#">주요고객사</a></li>
@@ -177,15 +186,15 @@
                   <ul class="dropdown arrow-top">
                   <li><a href="#">제조설비소개</a></li>
                   <li><a href="#">인허가사항</a></li>
+                  </ul>
                 </li>
-              </ul>
                 <li><a href="#contact"><span>고객문의</span></a></li>
               </ul>
             </nav>
           </div>
 
 
-          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"><a href="javascript:void(0);" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
 
           </div>
 
@@ -193,13 +202,12 @@
       </div>
 
     </header>
-
- <div class="site-blocks-cover overlay" 
-     style="background-image: url(background_final2.png);"
+ <div class="site-blocks-cover" 
+     style="background-image: url(background_modify3.png);"
      data-aos="fade" 
      data-stellar-background-ratio="0.5">
-    <div class="container h-100">
-      <div class="row align-items-start justify-content-start text-start h-100">
+    <div class="container">
+      <div class="row align-items-start justify-content-start text-start">
         <div class="col-md-5 d-flex flex-column justify-content-start">
           <div class="text-content">
             <h1 data-aos="fade-up" class="mb-5">
@@ -211,36 +219,25 @@
     </div>
 </div>
 <style>
-.site-blocks-cover {
-  min-height: 600px;           /* 원하는 최소 높이 */
-  display: flex;
-  align-items: flex-start;     /* 상단 정렬 */
-  position: relative;
-}
-
+  /* .typed-cursor {
+  color: #ff7f50;
+  } */
 .text-content {
-  margin-top: 200px;            /* <br> 대신 위 여백 */
+  margin-top: 200px;            
 }
-
-/* 모바일 */
 @media (max-width: 768px) {
   .site-blocks-cover {
-    background-size: cover;      /* 영역 꽉 채움 */
-    background-position: top left;
+    background-position: top;
     background-repeat: no-repeat;
-
     width: 100%;
     height: 0;
-    padding-top: 56.25%;         /* 16:9 비율로 영역 생성, 이미지 비율에 맞게 조정 */
-    position: relative;
   }
-
-  .site-blocks-cover .container {
-    position: absolute;          /* 텍스트를 배경 위에 위치시키기 위해 */
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1rem;
+  .text-content {
+    margin-top: 120px;           /* 텍스트 위치 조정 */
+    margin-left: 20px;
+  }
+  .text-content h1{
+    font-size: 42px;
   }
 }
 </style>
@@ -683,32 +680,76 @@ window.addEventListener('load', function() {
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const menuToggle = document.querySelector('.site-menu-toggle');
-  const mobileMenu = document.querySelector('.site-mobile-menu');
 
-  // 햄버거 클릭 시 메뉴 열기/닫기
-  menuToggle.addEventListener('click', function(e) {
-    e.preventDefault();
-    mobileMenu.classList.toggle('active');
+</script>
+<!-- 🔼 Top 버튼 -->
+<button id="topBtn" title="맨 위로">▲</button>
+
+<script>
+  // 스크롤 시 버튼 보이기/숨기기
+  window.onscroll = function() {
+    const topBtn = document.getElementById("topBtn");
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      topBtn.style.display = "block";
+    } else {
+      topBtn.style.display = "none";
+    }
+  };
+
+  // 클릭 시 맨 위로 스크롤
+  document.getElementById("topBtn").onclick = function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+</script>
+<style>
+  #topBtn {
+  display: none; /* 기본은 숨김 */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 18px;
+  background-color: #2e7d32; /* 원하는 색상 */
+  color: white;
+  border: none;
+  outline: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s;
+}
+
+#topBtn:hover {
+  background-color: #1b5e20;
+}
+
+/* 모바일에서도 보기 좋게 */
+@media (max-width: 768px) {
+  #topBtn {
+    bottom: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+</style>
+<script>
+
+</script>
+
+<script>
+  // 모바일에서 새로고침 시 index.html로 이동
+  window.addEventListener("load", function() {
+    const isMobile = window.innerWidth <= 768; // 모바일 감지
+    const isIndex = window.location.pathname.includes("index.html") || window.location.pathname.endsWith("/");
+    
+    if (isMobile && !isIndex && performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+      window.location.href = "index.html";
+    }
   });
-
-  // 드롭다운 메뉴 클릭 시 닫기
-  document.querySelectorAll('.site-mobile-menu .has-children > a').forEach(function(el) {
-    el.addEventListener('click', function(e) {
-      e.preventDefault();
-
-      // 현재 메뉴 토글
-      const parent = this.parentElement;
-      const dropdown = parent.querySelector('.dropdown');
-      parent.classList.toggle('active');
-      dropdown.style.display = parent.classList.contains('active') ? 'block' : 'none';
-
-      // 메뉴 닫기
-      mobileMenu.classList.remove('active');
-    });
-  });
-});
 </script>
   </body>
 </html>
