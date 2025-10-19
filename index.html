@@ -62,22 +62,25 @@
 <style>
 /* 모바일에서 제품 이미지 2개씩 보기 좋게 정렬 */
 @media (max-width: 767px) {
-  /* 각 제품 카드 내 이미지 컨테이너 */
+  /* mb-3 내부 flex 설정 */
   .col-md-6 .mb-3 {
-    display: flex !important;      /* flex 적용 */
-    flex-wrap: wrap;               /* 줄 바꿈 허용 */
-    justify-content: center;       /* 중앙 정렬 */
-    gap: 4%;                       /* 이미지 사이 간격 */
+    display: flex !important;
+    flex-wrap: wrap;          /* 줄바꿈 허용 */
+    justify-content: center;
+    gap: 4%;
   }
 
+  /* 이미지 컨테이너 너비: 한 줄에 2개 */
   .col-md-6 .mb-3 .img-container {
-    flex: 0 0 48%;                 /* 한 줄에 2개 */
-    margin-bottom: 10px;           /* 아래 여백 */
+    flex: 0 0 48%;            /* 한 줄에 2개 */
+    max-width: 48%;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
+  /* 이미지 크기 */
   .col-md-6 .mb-3 .img-container img {
     width: 100%;
     height: auto;
@@ -255,8 +258,9 @@
     background-position: center top; /* 상단 기준 정렬 */
     background-repeat: no-repeat;
     height: auto;                   /* 자동 높이 */
-    min-height: 300px;              /* 모바일 최소 높이 */
-    padding-top: 0;
+    min-height: 60vh;                  /* 화면 높이의 60%로 제한 */
+    max-height: 400px;                 /* 최대 높이 제한 */
+    padding-top: 0;                /* 위쪽 여백 추가 */
     padding-bottom: 0;
   }
 
