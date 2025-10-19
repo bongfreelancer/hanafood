@@ -256,26 +256,25 @@
 /* ✅ 모바일 대응 */
 @media (max-width: 768px) {
   .site-blocks-cover {
-    background-size: contain;        /* 이미지 원 비율 유지 */
-    background-position: top center; /* 상단 기준 */
+    background-size: contain;         /* 이미지 비율 유지하며 전체 표시 */
+    background-position: center top;  /* 상단 기준 */
     background-repeat: no-repeat;
-    min-height: auto;                /* 이미지 높이에 맞춤 */
-    height: auto;
-    padding-top: 0;                  /* 상단 여백 제거 */
-    padding-bottom: 0;               /* 하단 여백 제거 */
+    height: auto;                     /* 높이 자동 */
+    min-height: 0;                    /* 기존 최소 높이 제거 */
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
-  /* h1 글씨 크기 조정 */
+  .site-blocks-cover .container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   .site-blocks-cover h1 {
-    font-size: 1.4rem;   
+    font-size: 1.4rem;
     line-height: 1.5;
     text-align: center;
-    margin: 0;                       
-  }
-
-  /* container 여백 제거 */
-  .site-blocks-cover .container {
-    padding: 0;
+    margin: 0;
   }
 }
 </style>
