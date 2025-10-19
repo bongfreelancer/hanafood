@@ -198,77 +198,41 @@
 
 
 
-  <div class="site-blocks-cover overlay" 
-     style="background-image: url(background_final2.png);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;"
+ <div class="site-blocks-cover overlay" 
+     style="background-image: url(background_final2.png);"
      data-aos="fade" 
      data-stellar-background-ratio="0.5">
-    <div class="container">
-
-      <div class="row align-items-start justify-content-start text-start">
-
-        <div class="col-md-5">
-
-          <div class="row justify-content-flex-start mb-4">
-            <div class="col-md-12 text-center">
-              <br></br><br></br><br></br><br></br>
-              <h1 data-aos="fade-up" class="mb-5"><span style="color: #27CB58;">하나푸드</span>는 <span class="typed-words"></span>입니다.</h1>
-              <!-- <p data-aos="fade-up" data-aos-delay="100"><a href="#" class="btn btn-primary btn-pill">Get Started</a></p> -->
-            </div>
+    <div class="container h-100">
+      <div class="row align-items-start justify-content-start text-start h-100">
+        <div class="col-md-5 d-flex flex-column justify-content-start">
+          <div class="text-content">
+            <h1 data-aos="fade-up" class="mb-5">
+              <span style="color: #27CB58;">하나푸드</span>는 <span class="typed-words"></span>입니다.
+            </h1>
           </div>
         </div>
       </div>
     </div>
-  </div>
+</div>
 <style>
-/* ✅ 공통 (PC용) */
 .site-blocks-cover {
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  width: 100%;
-  min-height: 600px; /* 적당한 높이 */
+  min-height: 600px;           /* 원하는 최소 높이 */
+  display: flex;
+  align-items: flex-start;     /* 상단 정렬 */
   position: relative;
-  z-index: 0;
 }
 
-/* ✅ 모바일 대응 */
-@media (max-width: 768px) {
+.text-content {
+  margin-top: 200px;            /* <br> 대신 위 여백 */
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
   .site-blocks-cover {
-    background-size: cover;       /* 전체 영역을 이미지가 꽉 채우도록 */
-    background-position: left top; /* 왼쪽 상단 기준 */
-    background-repeat: no-repeat;
-    width: 100%;
-    height: auto;
-    min-height: 50vh;
-    max-height: 500px;
-    padding: 1rem;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;  /* 상단 정렬 */
-    align-items: flex-start;      /* 좌측 정렬 */
+    min-height: 50vh;          /* 모바일 화면에 맞게 */
   }
-
-
-  .site-blocks-cover .container {
-    padding: 0;                     /* 여백 제거 */
-  }
-.site-blocks-cover .row {
-    width: 100%;
-    margin: 0;                      /* Bootstrap row 기본 margin 제거 */
-    display: flex;
-    flex-direction: column;          /* 세로로 쌓이도록 */
-    justify-content: flex-start;     /* 상단 정렬 */
-    align-items: flex-start;         /* 좌측 정렬 */
-  }
-  .site-blocks-cover h1 {
-    font-size: 2rem;              /* 모바일용 글자 크기 */
-    line-height: 1.4;
-    text-align: left;               /* 왼쪽 정렬 */
-    margin: 0;
+  .text-content {
+    margin-top: 20px;          /* 모바일에서는 조금만 위 여백 */
   }
 }
 </style>
