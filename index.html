@@ -253,9 +253,16 @@
   .site-blocks-cover .container {
     padding: 0;                     /* 여백 제거 */
   }
-
+.site-blocks-cover .row {
+    width: 100%;
+    margin: 0;                      /* Bootstrap row 기본 margin 제거 */
+    display: flex;
+    flex-direction: column;          /* 세로로 쌓이도록 */
+    justify-content: flex-start;     /* 상단 정렬 */
+    align-items: flex-start;         /* 좌측 정렬 */
+  }
   .site-blocks-cover h1 {
-    font-size: 1.2rem;              /* 모바일용 글자 크기 */
+    font-size: 2rem;              /* 모바일용 글자 크기 */
     line-height: 1.4;
     text-align: left;               /* 왼쪽 정렬 */
     margin: 0;
