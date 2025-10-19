@@ -227,12 +227,16 @@
 }
 
 /* 모바일 */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .site-blocks-cover {
-    min-height: 50vh;          /* 모바일 화면에 맞게 */
+    background-size: contain;    /* 이미지 비율 유지하면서 영역에 맞춤 */
+    background-position: top left; /* 왼쪽 상단 기준 */
+    min-height: 50vh;            /* 모바일 최소 높이 */
+    max-height: 400px;           /* 너무 커지는 것을 제한 */
+    width: 100%;
   }
   .text-content {
-    margin-top: 20px;          /* 모바일에서는 조금만 위 여백 */
+    margin-top: 50px;          /* 모바일에서는 조금만 위 여백 */
   }
 }
 </style>
