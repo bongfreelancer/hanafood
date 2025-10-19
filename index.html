@@ -237,18 +237,21 @@
 /* ✅ 모바일 대응 */
 @media (max-width: 768px) {
   .site-blocks-cover {
-    background-size: contain;       /* 이미지가 잘리지 않고 전체 보여짐 */
-    background-position: left top;  /* 이미지 왼쪽 상단 기준 배치 */
+    background-size: cover;       /* 전체 영역을 이미지가 꽉 채우도록 */
+    background-position: left top; /* 왼쪽 상단 기준 */
     background-repeat: no-repeat;
-    width: 100%;                    /* 가로 꽉 채우기 */
-    height: auto;                   /* 높이 자동 */
-    min-height: 50vh;               /* 최소 높이: 화면의 50% */
-    max-height: 500px;              /* 최대 높이 제한 */
-    padding: 1rem;                  /* 텍스트와 이미지 간 여백 */
-    display: flex;                  /* 텍스트 위치 조정을 위해 flex 사용 */
-    align-items: flex-start;        /* 상단 정렬 */
-    justify-content: flex-start;    /* 왼쪽 정렬 */
+    width: 100%;
+    height: auto;
+    min-height: 50vh;
+    max-height: 500px;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;  /* 상단 정렬 */
+    align-items: flex-start;      /* 좌측 정렬 */
   }
+
 
   .site-blocks-cover .container {
     padding: 0;                     /* 여백 제거 */
