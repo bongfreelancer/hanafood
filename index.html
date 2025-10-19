@@ -29,7 +29,7 @@
   }
 
   .site-logo {
-    flex: 1;
+    flex: 0 1 auto;
   }
 .site-logo img {
   width: 100%;
@@ -43,15 +43,18 @@
   }
 }
   .site-menu-toggle {
-    position: static !important; /* 절대 위치 해제 */
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
     color: #333 !important;
     font-size: 1.8rem;
     padding: 0.2rem 0.5rem;
-    margin-right: 5px;
   }
 
   /* 아이콘을 보기 좋게 중앙정렬 */
   .site-navbar {
+    position: relative;
     padding: 0.5rem 1rem;
   }
 }
@@ -699,25 +702,28 @@ window.addEventListener('load', function() {
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+  const menuToggle = document.querySelector('.site-menu-toggle');
+  const mobileMenu = document.querySelector('.site-mobile-menu');
+
+  // 햄버거 클릭 시 메뉴 열기/닫기
+  menuToggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    mobileMenu.classList.toggle('active');
+  });
+
+  // 드롭다운 메뉴 클릭 시 닫기
   document.querySelectorAll('.site-mobile-menu .has-children > a').forEach(function(el) {
     el.addEventListener('click', function(e) {
       e.preventDefault();
+
+      // 현재 메뉴 토글
       const parent = this.parentElement;
       const dropdown = parent.querySelector('.dropdown');
-      if (!dropdown) return;
-
-      // 다른 열린 메뉴 닫기
-      document.querySelectorAll('.site-mobile-menu .has-children').forEach(function(other) {
-        if (other !== parent) {
-          other.classList.remove('active');
-          const otherDropdown = other.querySelector('.dropdown');
-          if (otherDropdown) otherDropdown.style.display = 'none';
-        }
-      });
-
-      // 현재 클릭한 메뉴 토글
       parent.classList.toggle('active');
       dropdown.style.display = parent.classList.contains('active') ? 'block' : 'none';
+
+      // 메뉴 닫기
+      mobileMenu.classList.remove('active');
     });
   });
 });
