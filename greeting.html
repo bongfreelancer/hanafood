@@ -19,52 +19,31 @@
     <link rel="stylesheet" href="css/rangeslider.css">
     <link rel="stylesheet" href="css/style.css">
 <style>
-      /* 🌿 모바일 반응형 최적화 */
       @media (max-width: 768px) {
-        /* 헤더 높이 축소 */
-        .site-navbar {
-          padding: 0.4rem 0;
-          min-height: 60px;
-        }
-
-        /* 로고 크기 및 폰트 조정 */
-        .site-logo img {
-    max-width: 140px;
-    height: auto;
+  .site-navbar .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
-        /* 햄버거 아이콘 위치 */
-        .site-menu-toggle {
-    font-size: 1.6rem;
-    padding: 0.4rem;
+  .site-logo {
+    flex: 1;
+  }
+
+  .site-menu-toggle {
+    position: static !important; /* 절대 위치 해제 */
     color: #333 !important;
-    position: absolute;
-    top: 10px;
-    right: 15px;
+    font-size: 1.8rem;
+    padding: 0.2rem 0.5rem;
+    margin-right: 5px;
   }
 
-        /* 모바일 메뉴 항목 */
-        .site-mobile-menu-body .has-children > a {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          font-size: 1.05rem;
-          padding: 0.7rem 1rem;
-          cursor: pointer;
-        }
-
-        /* 모바일 드롭다운 메뉴 */
-        .site-mobile-menu-body .dropdown {
-          display: none;
-          padding-left: 1rem;
-          background: #f8f8f8;
-        }
-
-        .site-mobile-menu-body .has-children.active > a {
-          color: #27CB58;
-        }
-      }
-    </style>
+  /* 아이콘을 보기 좋게 중앙정렬 */
+  .site-navbar {
+    padding: 0.5rem 1rem;
+  }
+}
+</style>
     <style>
    
   .icon-menu {
@@ -92,9 +71,7 @@
         z-index: 10;
       }
       
-.site-section-heading::after {
-  display: none !important;
-}
+
     </style>
   </head>
 <style>
@@ -102,6 +79,7 @@ html, body {
   margin: 0;
   padding: 0;
   min-height: 100%;
+  scrollbar-gutter: stable;
 }
 
 .site-wrap {
@@ -118,6 +96,23 @@ html, body {
   margin: 0;
   padding: 1rem 0;
   flex-shrink: 0; /* footer가 줄어들지 않도록 */
+}
+/* 기본 푸터 스타일 */
+.site-footer p {
+  font-size: 1rem;
+  text-align: center;
+  white-space: nowrap; /* 줄바꿈 방지 */
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+/* 모바일 전용 스타일 */
+@media (max-width: 768px) {
+  .site-footer p {
+    font-size: 0.8rem; /* 글자 크기 줄이기 */
+    text-align: center; /* 가운데 정렬 유지 */
+    white-space: nowrap; /* 한 줄 유지 */
+  }
 }
 </style>
   <body>
@@ -167,7 +162,7 @@ html, body {
             </nav>
           </div>
 
-          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;">
+          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3">
             <a href="#" class="site-menu-toggle js-menu-toggle text-white">
               <span class="icon-menu h3"></span>
             </a>
@@ -177,11 +172,12 @@ html, body {
     </header>
 
     <!-- 인사말 본문 -->
+    <div style="height:120px;"></div>
     <div class="block-services-1 py-5" style="background:#fff !important; position:relative; z-index:10; padding-top:120px;">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-12 text-center">
-            <h2 style="color:#000000" class="site-section-heading text-center">CEO 인사말</h2>
+            <h2 style="color:#000000" class="site-section-heading text-center" data-aos="fade-up" data-aos-delay="100">CEO 인사말</h2>
           </div>
         </div>
 
@@ -259,13 +255,6 @@ html, body {
 .site-mobile-menu-body li .dropdown li a:hover,
 .site-mobile-menu-body li .dropdown li a:hover span {
   color: #ff7f50 !important; /* 주황색 */
-}
-</style>
-<style>
-.site-footer {
-  margin: 50px 0 0; /* 위쪽 50px 여백 추가 */
-  padding: 2rem 0;  /* 기존 padding 유지 */
-  position: relative;
 }
 </style>
 <script>
