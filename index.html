@@ -61,11 +61,13 @@
 </style>
 <style>
 /* 모바일에서 제품 이미지 2개씩 보기 좋게 정렬 */
-@media (max-width: 767px) {
-  .mb-3 .img-container {
-    flex-direction: column; /* 이미지+텍스트 세로 유지 */
-    width: calc(50% - 10px); /* 한 줄에 2개 */
-    box-sizing: border-box;
+@media (max-width: 768px) {
+  .mb-3 {
+    flex-wrap: nowrap;     /* 한 줄로 고정 */
+  }
+
+  .img-container {
+    width: 48%;           /* 한 줄에 2개 유지 */
   }
 }
 </style>
@@ -241,7 +243,7 @@
     height: auto;                   /* 자동 높이 */
     min-height: 60vh;                  /* 화면 높이의 60%로 제한 */
     max-height: 440px;                 /* 최대 높이 제한 */
-    padding-top: 0;                /* 위쪽 여백 추가 */
+    padding-top: 2rem;                /* 위쪽 여백 추가 */
     padding-bottom: 0;
   }
 
