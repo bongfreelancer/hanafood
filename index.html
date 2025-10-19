@@ -31,7 +31,17 @@
   .site-logo {
     flex: 1;
   }
+.site-logo img {
+  width: 100%;
+  height: auto;
+  max-width: 180px; /* 최대 크기 제한 */
+}
 
+@media (max-width: 768px) {
+  .site-logo img {
+    max-width: 40vw; /* 화면 너비의 40%로 자동 반응 */
+  }
+}
   .site-menu-toggle {
     position: static !important; /* 절대 위치 해제 */
     color: #333 !important;
@@ -234,10 +244,12 @@
 /* ✅ 모바일 대응 */
 @media (max-width: 768px) {
   .site-blocks-cover {
-    background-size: contain;         /* 이미지 전체가 보이게 */
-    background-position: top center;  /* 위쪽 기준으로 정렬 */
+    background-size: contain;          /* 이미지 전체가 보이게 */
+    background-position: top center;   /* 위쪽 기준 */
     background-repeat: no-repeat;
-    min-height: 400px;                /* 너무 커지지 않게 */
+    min-height: 60vh;                  /* 화면 높이의 60%로 제한 */
+    max-height: 400px;                 /* 최대 높이 제한 */
+    padding-top: 2rem;                 /* 위쪽 여백 추가 */
   }
 
   .site-blocks-cover h1 {
