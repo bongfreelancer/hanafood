@@ -63,10 +63,10 @@
 /* 모바일에서 제품 이미지 2개씩 보기 좋게 정렬 */
 @media (max-width: 768px) {
   .mb-3 {
-    display: flex !important;      /* !important로 인라인 스타일 덮어쓰기 */
+    display: flex !important;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 4%;
+    gap: 10px; /* 이미지 사이 간격 */
   }
 
   .img-container {
@@ -80,7 +80,6 @@
   .img-container img {
     width: 100%;
     height: auto;
-    object-fit: cover;
   }
 
   .img-container p {
@@ -256,11 +255,11 @@
 /* ✅ 모바일 대응 */
 @media (max-width: 768px) {
   .site-blocks-cover {
-    background-size: contain;         /* 이미지 비율 유지하며 전체 표시 */
-    background-position: center top;  /* 상단 기준 */
+    background-size: contain;       /* 화면에 맞게 축소 */
+    background-position: center top; /* 상단 기준 정렬 */
     background-repeat: no-repeat;
-    height: auto;                     /* 높이 자동 */
-    min-height: 0;                    /* 기존 최소 높이 제거 */
+    height: auto;                   /* 자동 높이 */
+    min-height: 300px;              /* 모바일 최소 높이 */
     padding-top: 0;
     padding-bottom: 0;
   }
