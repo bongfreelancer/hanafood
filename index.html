@@ -62,29 +62,10 @@
 <style>
 /* 모바일에서 제품 이미지 2개씩 보기 좋게 정렬 */
 @media (max-width: 767px) {
-  /* mb-3 내부 flex 설정 */
-  .col-md-6 .mb-3 {
-    display: flex !important;
-    flex-wrap: wrap;          /* 줄바꿈 허용 */
-    justify-content: center;
-    gap: 4%;
-  }
-
-  /* 이미지 컨테이너 너비: 한 줄에 2개 */
-  .col-md-6 .mb-3 .img-container {
-    flex: 0 0 48%;            /* 한 줄에 2개 */
-    max-width: 48%;
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* 이미지 크기 */
-  .col-md-6 .mb-3 .img-container img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+  .mb-3 .img-container {
+    flex-direction: column; /* 이미지+텍스트 세로 유지 */
+    width: calc(50% - 10px); /* 한 줄에 2개 */
+    box-sizing: border-box;
   }
 }
 </style>
@@ -433,7 +414,7 @@ window.addEventListener('load', function() {
 
         <div class="row text-center" data-aos="fade-up" data-aos-delay="100">
           <!-- 대파 -->
-          <div class="col-6 col-md-6 mb-4">
+          <div class="col-md-6 mb-4">
             <div class="p-4 border rounded shadow-sm h-100">
               <h4>대파</h4>
               <p style="color:#555;">신선한 대파를 세척 후 5~6cm 반갈라, 파채, 5mm 슬라이스 등 절단하여 납품합니다.</p>
@@ -445,7 +426,7 @@ window.addEventListener('load', function() {
           </div>
 
           <!-- 샐러드 믹스 -->
-          <div class="col-6 col-md-6 mb-4">
+          <div class="col-md-6 mb-4">
             <div class="p-4 border rounded shadow-sm h-100">
               <h4>샐러드 믹스</h4>
               <p style="color:#555;">각종 엽채류 및 구근류를 고객의 요구사항에 맞게 가공 및 믹스하여 납품합니다.</p>
@@ -456,7 +437,7 @@ window.addEventListener('load', function() {
           </div>
 
           <!-- 애호박 -->
-          <div class="col-6 col-md-6 mb-4">
+          <div class="col-md-6 mb-4">
             <div class="p-4 border rounded shadow-sm h-100">
               <h4>애호박</h4>
               <p style="color:#555;">신선한 애호박을 새척 후 반달 슬라이스, 반갈라 등 다양한 형태로 절단하여 납품합니다.</p>
@@ -468,7 +449,7 @@ window.addEventListener('load', function() {
           </div>
 
           <!-- 오이 -->
-          <div class="col-6 col-md-6 mb-4">
+          <div class="col-md-6 mb-4">
             <div class="p-4 border rounded shadow-sm h-100">
               <h4>오이</h4>
               <p style="color:#555;">신선한 오이를 세척 후 오이채, 슬라이스 등 고객 요구에 맞게 다양한 형태로 절단하여 납품합니다.</p>
@@ -480,7 +461,7 @@ window.addEventListener('load', function() {
           </div>
 
           <!-- 감자 -->
-          <div class="col-6 col-md-6 mb-4">
+          <div class="col-md-6 mb-4">
             <div class="p-4 border rounded shadow-sm h-100">
               <h4>감자</h4>
               <p style="color:#555;">3x5x7mm 채, 5x10mm 다이스 등 고객 요구에 맞게 다양한 규격으로 납품합니다.</p>
@@ -492,7 +473,7 @@ window.addEventListener('load', function() {
           </div>
 
           <!-- 무 -->
-          <div class="col-6 col-md-6 mb-4">
+          <div class="col-md-6 mb-4">
             <div class="p-4 border rounded shadow-sm h-100">
               <h4>무</h4>
               <p style="color:#555;">신선한 무를 세척 후 3x5mm 채, 15x15x15mm 다이서 등 다양한 형태로 절단하여 납품합니다.</p>
@@ -504,7 +485,7 @@ window.addEventListener('load', function() {
           </div>
 
           <!-- 양파 -->
-          <div class="col-6 col-md-6 mb-4">
+          <div class="col-md-6 mb-4">
             <div class="p-4 border rounded shadow-sm h-100">
               <h4>양파</h4>
               <p style="color:#555;">15mm 다이스 샐러드, 5x10mm 다이스, 3x5mm 슬라이스 등 다양한 형태로 절단하여 납품합니다.</p>
@@ -516,7 +497,7 @@ window.addEventListener('load', function() {
           </div>
 
           <!-- 고구마 -->
-          <div class="col-6 col-md-6 mb-4">
+          <div class="col-md-6 mb-4">
             <div class="p-4 border rounded shadow-sm h-100">
               <h4>고구마</h4>
               <p style="color:#555;">3x5x7mm 채, 3x5mm 슬라이스 및 5x10mm 다이스 형태로 가공되어 납품합니다.</p>
@@ -528,7 +509,7 @@ window.addEventListener('load', function() {
           </div>
 
           <!-- 양배추 -->
-          <div class="col-6 col-md-6 mb-4">
+          <div class="col-md-6 mb-4">
             <div class="p-4 border rounded shadow-sm h-100">
               <h4>양배추</h4>
               <p style="color:#555;">3x5mm 슬라이스, 5mm 다이스, 10mm 다이스 등 다양한 규격으로 절단되어 납품합니다.</p>
@@ -540,7 +521,7 @@ window.addEventListener('load', function() {
           </div>
 
           <!-- 당근 -->
-          <div class="col-6 col-md-6 mb-4">
+          <div class="col-md-6 mb-4">
             <div class="p-4 border rounded shadow-sm h-100">
               <h4>당근</h4>
               <p style="color:#555;">3x5mm 슬라이스, 5x10mm 다이스 등 고객의 요구사항에 맞게 다양한 규격으로 절단되어 납품합니다.</p>
@@ -552,7 +533,7 @@ window.addEventListener('load', function() {
           </div>
 
           <!-- 버섯 -->
-          <div class="col-6 col-md-6 mb-4">
+          <div class="col-md-6 mb-4">
             <div class="p-4 border rounded shadow-sm h-100">
               <h4>버섯</h4>
               <p style="color:#555;">3x5mm 슬라이스, 5x10mm 다이스, 15mm 다이스 등 다양한 형태로 가공되어 납품합니다.</p>
@@ -564,7 +545,7 @@ window.addEventListener('load', function() {
           </div>
 
           <!-- 우엉 / 연근 -->
-          <div class="col-6 col-md-6 mb-4">
+          <div class="col-md-6 mb-4">
             <div class="p-4 border rounded shadow-sm h-100">
               <h4>우엉 / 연근</h4>
               <p style="color:#555;">신선한 우엉 및 연근을 세척 후 고객 요구사항에 맞게 다양한 규격으로 절단되어 납품합니다.</p>
