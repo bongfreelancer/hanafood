@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   
   <title>농업회사법인(주) 하나푸드</title>
@@ -161,7 +161,7 @@
                 <li class="has-children">
                   <a href="javascript:void(0);" class="disabled-link"><span>회사소개</span></a>
                   <ul class="dropdown arrow-top">
-                    <li><a href="greeting2.html">CEO 인사말</a></li>
+                    <li><a href="greeting.html">CEO 인사말</a></li>
                     <li><a href="status.html">회사현황</a></li>
                     <li><a href="history.html">회사연혁</a></li>
                     <li><a href="partners.html">주요고객사</a></li>
@@ -191,7 +191,33 @@
       </div>
 
     </header>
- 
+ <style>
+  /* 상위 메뉴 텍스트 */
+  .site-menu > li > a span,
+  .site-menu > li.has-children > a span {
+    transition: color 0.3s ease;
+  }
+
+  .site-menu > li > a:hover span,
+  .site-menu > li.has-children > a:hover span {
+    color: #FF7F00 !important;
+  }
+
+  /* 드롭다운 메뉴 텍스트 (span 없이 a 직접 선택) */
+  .site-menu li.has-children .dropdown li a {
+    transition: color 0.3s ease;
+    color: #000; /* 기본 색상, 필요 시 변경 */
+  }
+
+  .site-menu li.has-children .dropdown li a:hover {
+    color: #FF7F00 !important;
+  }
+
+  /* 모바일 메뉴도 적용 */
+  .site-mobile-menu .site-menu li a:hover {
+    color: #FF7F00 !important;
+  }
+</style>
 <script>
 window.addEventListener('load', function() {
   // AOS 초기화

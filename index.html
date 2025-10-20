@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   
   <title>농업회사법인(주) 하나푸드</title>
@@ -202,6 +202,34 @@
       </div>
     </header>
 </div>
+<style>
+  /* 상위 메뉴 텍스트 */
+  .site-menu > li > a span,
+  .site-menu > li.has-children > a span {
+    transition: color 0.3s ease;
+  }
+
+  /* 상위 메뉴 마우스 오버 */
+  .site-menu > li > a:hover span,
+  .site-menu > li.has-children > a:hover span {
+    color: #FF7F00 !important;
+  }
+
+  /* 드롭다운 메뉴 텍스트 */
+  .site-menu li.has-children .dropdown li a {
+    transition: color 0.3s ease;
+  }
+
+  /* 드롭다운 메뉴 마우스 오버 */
+  .site-menu li.has-children .dropdown li a:hover {
+    color: #FF7F00 !important;
+  }
+
+  /* 모바일 메뉴에도 동일하게 적용 */
+  .site-mobile-menu .site-menu li a:hover {
+    color: #FF7F00 !important;
+  }
+</style>
  <div class="site-blocks-cover" 
      style="background-image: url(background_modify3.png);"
      data-aos="fade" 
@@ -719,6 +747,29 @@ window.addEventListener('load', function() {
       window.location.href = "index.html";
     }
   });
+</script>
+<script>
+$(function() {
+  
+  /* ② “제품소개”, “고객문의” 클릭 시 메뉴 닫기 + 스크롤 이동 */
+  $('.site-mobile-menu-body').on('click', 'a[href="#products"], a[href="#contact"]', function(e) {
+    e.preventDefault();
+    const target = $(this).attr('href'); // #products or #contact
+
+    // 메뉴 닫기
+    $('body').removeClass('offcanvas-menu');
+
+    // 살짝 시간차를 두고 스크롤 이동 (닫힘 애니메이션 후)
+    setTimeout(() => {
+      const section = document.querySelector(target);
+      if (section) {
+        const top = section.getBoundingClientRect().top + window.scrollY - 80; // 메뉴 높이 보정
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }, 300);
+  });
+
+});
 </script>
   </body>
 </html>
